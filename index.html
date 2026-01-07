@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide d'Utilisation - FRIKO</title>
+    <style>
+        :root {
+            --primary-color: #1976d2;
+            /* Bleu FRIKO */
+            --text-color: #333;
+            --bg-color: #f4f6f8;
+            --sidebar-width: 280px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            display: flex;
+        }
+
+        /* Sidebar Navigation */
+        nav {
+            width: var(--sidebar-width);
+            background: #fff;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            border-right: 1px solid #e0e0e0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        nav h1 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav li {
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background-color: #e3f2fd;
+            color: var(--primary-color);
+        }
+
+        nav .sub-menu {
+            margin-left: 15px;
+            font-size: 0.9rem;
+            border-left: 2px solid #eee;
+        }
+
+        /* Main Content */
+        main {
+            margin-left: var(--sidebar-width);
+            padding: 40px 60px;
+            flex: 1;
+            max-width: 1000px;
+        }
+
+        section {
+            background: #fff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 20px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #444;
+            margin-top: 25px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .bg-blue {
+            background-color: #1976d2;
+        }
+
+        .bg-green {
+            background-color: #4caf50;
+        }
+
+        .bg-orange {
+            background-color: #ff9800;
+        }
+
+        .bg-red {
+            background-color: #f44336;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #d32f2f;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            nav {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            main {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h1>FRIKO <small style="font-size: 0.7rem; color: #666;">v1.0</small></h1>
+        <ul>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#access">Accès & Connexion</a></li>
+            <li><a href="#roles">Rôles & Permissions</a></li>
+            <li><a href="#pos">Point de Vente (POS)</a>
+                <div class="sub-menu">
+                    <a href="#pos-scan">Scanner Code-barres</a>
+                    <a href="#pos-offline">Mode Hors-Ligne</a>
+                </div>
+            </li>
+            <li><a href="#products">Gestion Produits</a>
+                <div class="sub-menu">
+                    <a href="#prod-labels">Impression Étiquettes</a>
+                </div>
+            </li>
+            <li><a href="#stock">Gestion de Stock</a></li>
+            <li><a href="#admin">Administration</a></li>
+            <li><a href="#support">Support & FAQ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="intro">
+            <h2>Introduction</h2>
+            <p>Bienvenue dans la documentation officielle de <strong>FRIKO</strong>, votre solution de gestion de
+                magasin centralisée.</p>
+            <p>Cette application a été conçue pour optimiser la gestion de vos stocks, fluidifier vos ventes en caisse
+                et vous offrir une vue d'ensemble précise de votre activité commerciale.</p>
+        </section>
+
+        <section id="access">
+            <h2>Accès & Connexion</h2>
+            <p>L'application est accessible via un navigateur web (Chrome recommandé). Elle est sécurisée et nécessite
+                une authentification.</p>
+
+            <h3>Se connecter</h3>
+            <ol>
+                <li>Rendez-vous sur la page de connexion.</li>
+                <li>Entrez votre <strong>Email</strong> et votre <strong>Mot de passe</strong> fournis par
+                    l'administrateur.</li>
+                <li>Cliquez sur "Se connecter".</li>
+            </ol>
+
+            <div class="note">
+                <strong>Important :</strong> La création de compte est restreinte. Seuls les Managers ou Administrateurs
+                peuvent créer de nouveaux comptes employés. Si vous n'avez pas d'accès, contactez votre responsable.
+            </div>
+        </section>
+
+        <section id="roles">
+            <h2>Rôles & Permissions</h2>
+            <p>FRIKO utilise un système de sécurité basé sur les rôles (RBAC). Chaque utilisateur voit uniquement les
+                menus correspondant à sa fonction.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rôle</th>
+                        <th>Accès & Fonctionnalités</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge bg-red">Super Admin</span></td>
+                        <td>Accès total au système, gestion technique, configuration des permissions.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge bg-blue">Manager</span></td>
+                        <td>Gestion commerciale complète (Ventes, Produits, Utilisateurs, Rapports, Paramètres).</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge bg-orange">Responsable Stock</span></td>
+                        <td>Gestion du catalogue produit, entrées/sorties de stock, inventaires.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge bg-green">Caissier</span></td>
+                        <td>Accès exclusif au Point de Vente (POS) et à l'historique de ses ventes.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="pos">
+            <h2>Point de Vente (POS)</h2>
+            <p>L'interface de caisse a été conçue pour la rapidité et l'efficacité.</p>
+
+            <h3 id="pos-scan">Utilisation du Scanner Code-barres</h3>
+            <p>Le système est compatible avec votre scanner <strong>YHDAA YHD-1100D</strong>.</p>
+            <ul>
+                <li><strong>Aucun clic nécessaire :</strong> Sur la page de vente, scannez simplement l'article.</li>
+                <li>Le produit est automatiquement ajouté au panier.</li>
+                <li>Si le produit est déjà dans le panier, sa quantité augmente de +1.</li>
+            </ul>
+
+            <h3 id="pos-offline">Mode Hors-Ligne (Offline)</h3>
+            <p>FRIKO fonctionne même sans connexion internet.</p>
+            <div class="note">
+                Si la connexion est coupée :
+                <ul>
+                    <li>Un indicateur <span class="badge bg-red">Hors ligne</span> apparaît en haut à gauche.</li>
+                    <li>Vous pouvez continuer à encaisser les clients.</li>
+                    <li>Les ventes sont sauvegardées localement sur votre appareil.</li>
+                    <li>Dès que la connexion revient, le système se <strong>synchronise automatiquement</strong> et
+                        envoie toutes les ventes au serveur.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="products">
+            <h2>Gestion des Produits</h2>
+            <p>Permet de créer, modifier et supprimer (archiver) les produits du catalogue.</p>
+            <ul>
+                <li><strong>Création :</strong> Saisie du nom, prix, catégorie, stock initial et seuil d'alerte.</li>
+                <li><strong>Génération de Code-barres :</strong> Possibilité de générer automatiquement un code unique
+                    (ex: <code>FRIKO-0042</code>) lors de la création.</li>
+            </ul>
+
+            <h3 id="prod-labels">Impression d'Étiquettes</h3>
+            <p>Vous pouvez imprimer des planches d'étiquettes pour vos produits :</p>
+            <ol>
+                <li>Allez dans la liste des produits.</li>
+                <li>Cochez les produits souhaités.</li>
+                <li>Cliquez sur le bouton <strong>"Imprimer Étiquettes"</strong>.</li>
+                <li>Une fenêtre d'impression s'ouvrira, formatée pour votre imprimante thermique.</li>
+            </ol>
+        </section>
+
+        <section id="stock">
+            <h2>Gestion de Stock</h2>
+            <p>Cette section permet d'ajuster les niveaux de stock manuellement en dehors des ventes.</p>
+            <ul>
+                <li><strong>Entrée (Réception) :</strong> À utiliser lors de la réception de marchandises fournisseurs.
+                </li>
+                <li><strong>Ajustement (Sortie) :</strong> À utiliser pour corriger le stock en cas de perte, vol ou
+                    casse.</li>
+            </ul>
+            <p>L'historique complet des mouvements (qui a fait quoi et quand) est visible sur cette page.</p>
+        </section>
+
+        <section id="admin">
+            <h2>Administration</h2>
+            <p>Réservé aux Managers et Admins.</p>
+            <ul>
+                <li><strong>Gestion des Utilisateurs :</strong> Créer des comptes pour les caissiers, attribuer des
+                    rôles, désactiver un employé parti.</li>
+                <li><strong>Paramètres :</strong> Gestion fine des permissions (qui a le droit de faire quoi) via une
+                    interface de cases à cocher.</li>
+            </ul>
+        </section>
+
+        <section id="support">
+            <h2>Support & Maintenance</h2>
+            <p>Pour toute question technique ou problème bloquant, veuillez contacter le prestataire.</p>
+            <ul>
+                <li><strong>Développeur :</strong> Komlan Samuel ATTIOGBE</li>
+                <li><strong>Email :</strong> <a href="mailto:codeurspro09@gmail.com">CodeursPro</a></li>
+                <li><strong>Whatsapp :</strong> <a href="https://wa.me/+22870376822">Samuel ATTIOGBE</a></li>
+            </ul>
+        </section>
+
+        <footer style="align-content: center;">
+            <p><Strong>Codeurs Pro Inc, 2026 ©Tous droits reservés</Strong></p>
+        </footer>
+
+    </main>
+
+    <script>
+        // Petit script pour mettre en évidence le lien actif dans le menu
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
